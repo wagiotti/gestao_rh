@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h3> Sistema de Gestão RH</h3>
+        <hr/>
+        {% block main %} {% endblock %}
+     </div>
+</body>
+</html>

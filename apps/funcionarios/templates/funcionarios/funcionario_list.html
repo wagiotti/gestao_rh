@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Lista de funcionários {% endblock %}
+
+{% block main %}
+    <h3>Lista de funcionários</h3>
+    <table border="1">
+        {% for funcionario in object_list %}
+           <tr>
+              <td>{{ funcionario.id }}</td>
+               <td><a href="{% url 'update_funcionarios' funcionario.id %}"> {{ funcionario }}</a></td>
+              <td>{{ funcionario.empresa }}</td>
+           </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
