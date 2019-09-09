@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Lista de funcionários {% endblock %}
+
+{% block main %}
+<h3>Delete</h3>
+    <form method="post">
+        {% csrf_token %}
+        <h4>Você esta certo que deseja deletar o usuario {{ funcionario.nome }}</h4>
+        {{form.as_p}}
+        <button type="submit" class = "btn btn-danger">Confirmar</button>
+    </form>
+{% endblock %}

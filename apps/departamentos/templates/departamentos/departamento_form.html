@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %}Cadastro de Departementos{% endblock %}
+{% block main %}
+    <h3>Cadastro de departamentos</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
