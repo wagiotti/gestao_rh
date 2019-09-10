@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Lista de funcionários {% endblock %}
+
+{% block main %}
+ <br>
+    {% if not object_list %}
+        <h4>Não existem registros no banco de dados </h4>
+    {% else %}
+    <h3>Relação de Horas Extra</h3>
+    <table border="1" width="70%" cellpadding="5px">
+        <tr align="center">
+            <td>Ações</td>
+            <td>Motivo</td>
+            <td>horas</td>
+            <td>funcionário</td>
+        </tr>
+        {% for hora_extra in object_list %}
+           <tr align="center">
+              <td><a href="{% url 'delete_hora_extra' hora_extra.id %}" class="btn btn-danger">Deletar</a></td>
+              <td><a href="{% url 'update_hora_extra' hora_extra.id %}"> {{ hora_extra }}</a></td>
+              <td>{{ hora_extra.horas }}</td>
+              <td>{{ hora_extra.funcionario }}</td>
+           </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+    <hr>
+    <a href="{% url 'novo_hora_extra'%}" class="btn btn-primary">Adicionar hora</a>
+
+{% endblock %}
