@@ -18,6 +18,6 @@
         <hr>
         <h3>Registro de horas extras</h3>
         {% for registro_hora in object.registro_hora_extra_set.all %}
-            {{ registro_hora }} - {{ registro_hora.hora }}
+            {{ registro_hora }} - {{ registro_hora.horas }}
         {% endfor %}
 {% endblock %}
