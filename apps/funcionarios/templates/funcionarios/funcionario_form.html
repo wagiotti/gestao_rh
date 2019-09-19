@@ -9,20 +9,15 @@
         {{form|bootstrap}}
         <button type="submit" class="btn btn-main">Salvar</button>
     </form>
-    <table>
-        <tr>
-            <td>
+        <h3>Documentos</h3>
         <a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Arquivo</a><br>
 
         {% for documento in object.documento_set.all %}
             <a href="{{ documento.arquivo.url }}">{{ documento }}</a><br>
         {% endfor %}
-            </td>
-            <td>
-                {% for registro_hora in object.registro_hora_extra_set.all %}
-                    {{ registro_hora }}
-                {% endfor %}
-            </td>
-        </tr>
-    </table>
+        <hr>
+        <h3>Registro de horas extras</h3>
+        {% for registro_hora in object.registro_hora_extra_set.all %}
+            {{ registro_hora }} - {{ registro_hora.hora }}
+        {% endfor %}
 {% endblock %}
