@@ -7,7 +7,7 @@
     <form method="post">
         {% csrf_token %}
         {{form|bootstrap}}
-        <button type="submit" class="btn btn-main">Salvar</button>
+        <button type="submit" class="btn btn-info">Salvar</button>
     </form>
         <h3>Documentos</h3>
         <a href="{% url 'create_documento' object.id %}" class="btn btn-success">Adicionar Arquivo</a><br>
@@ -19,11 +19,13 @@
         <h3>Registro de horas extras</h3>
         <ul>
         {% for registro_hora in object.registro_hora_extra_set.all %}
-            <li>
-                {{ registro_hora }} - {{ registro_hora.horas }}
+           <li>
+                <a href="{% url 'update_hora_extra' registro_hora.id %}">{{ registro_hora }} </a> - {{ registro_hora.horas }}
             </li>
         {% endfor %}
         </ul>
         <hr/>
-        <h3>Total de horas extra = {{ object.total_hora_extra }}</h3>
+        <h3>Total de horas extra = {{ object.total_hora_extra.total }}</h3>
+        <h3>Media de horas extra = {{ object.total_hora_extra.media }}</h3>
+        <a href="{% url 'novo_hora_extra'%}" class="btn btn-success">Adicionar Hora extra </a>
 {% endblock %}
